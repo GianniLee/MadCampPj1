@@ -36,6 +36,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    buildFeatures {
+        viewBinding = true
+    }
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -53,4 +56,6 @@ dependencies {
 
     implementation("com.github.bumptech.glide:glide:4.12.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
+    implementation("de.hdodenhof:circleimageview:2.2.0") //이미지 원형으로 바꿔주기
+    implementation("com.google.android.material:material:1.2.1") //modal bottom sheet
 }

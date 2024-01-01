@@ -7,6 +7,62 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Contacts"-->
+<!--        android:textColor="@color/lavender"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:textSize="36sp" />-->
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="30dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <!-- Left side: Contacts text -->
+        <TextView
+            android:id="@+id/textViewContacts"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start|bottom"
+            android:gravity="bottom|start"
+            android:text="Contacts"
+            android:textColor="@color/black2"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:layout_marginStart="-30dp" />
+
+        <ImageButton
+            android:id="@+id/btnAddContact"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end|bottom"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:paddingStart="16dp"
+            android:paddingEnd="5dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="10dp"
+            android:src="@drawable/ic_add"
+            app:tint="@color/black" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="90dp"/>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
@@ -23,7 +79,5 @@
         app:itemRippleColor="@android:color/transparent"
         app:labelVisibilityMode="unlabeled"
         app:menu="@menu/bottom_menu" />
-
-
 
 </RelativeLayout>

@@ -22,7 +22,7 @@ class Fragment_Gallery1 : Fragment() {
         val gAdapter = MyGridAdapter(requireContext())
 
         gv.adapter = gAdapter
-
+        //
         return view
     }
 

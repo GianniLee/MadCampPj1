@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="0dp">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/bottom_sheet_behavior"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="56dp"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/textNewContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="New Contact"
+            android:textSize="17sp"
+            android:layout_alignParentTop="true"
+            android:textColor="@color/black2"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"/>
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:textSize="17sp"
+            android:textAllCaps="false"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="#00000000"
+            android:textColor="@color/blue"/>
+
+        <Button
+            android:id="@+id/btnDone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Done"
+            android:textSize="17sp"
+            android:textAllCaps="false"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:clickable="false"
+            android:background="#00000000"
+            android:textColor="#d9d9d9" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_below="@id/textNewContact"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/person"
+            android:background="@drawable/circle_shape"
+            android:layout_marginTop="18dp" />
+
+        <Button
+            android:id="@+id/btnAddPhoto"
+            android:background="@drawable/custom_button_background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Photo"
+            android:textColor="@color/black"
+            android:gravity="center_vertical"
+            android:textAllCaps="false"
+            android:layout_below="@id/imageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"/>
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/editTextFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnAddPhoto"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/edittext_box_background"
+        android:hint="First name"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="15dp"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/editTextLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Last name"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="15dp"
+        android:layout_below="@id/editTextFirstName"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/edittext_box_background"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phone"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="15dp"
+        android:layout_below="@id/editTextLastName"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/edittext_box_background"/>
+</LinearLayout>

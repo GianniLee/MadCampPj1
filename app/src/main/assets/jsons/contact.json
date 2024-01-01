@@ -1,0 +1,27 @@
+[
+  {
+    "profileImageResId": "haerin",
+    "name": "강해린",
+    "phoneNumber": "123-456-7890"
+  },
+  {
+    "profileImageResId": "minji",
+    "name": "김민지",
+    "phoneNumber": "987-654-3210"
+  },
+  {
+    "profileImageResId": "daniel",
+    "name": "다니엘",
+    "phoneNumber": "987-654-3210"
+  },
+  {
+    "profileImageResId": "hanni",
+    "name": "팜하니",
+    "phoneNumber": "987-654-3210"
+  },
+  {
+    "profileImageResId": "hyein",
+    "name": "이혜인",
+    "phoneNumber": "987-654-3210"
+  }
+]

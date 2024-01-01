@@ -18,8 +18,8 @@ import android.net.Uri
 //import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) { //주석
-        super.onCreate(savedInstanceState) //주석
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         moveTab()

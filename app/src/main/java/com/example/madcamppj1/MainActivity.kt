@@ -18,7 +18,7 @@ import android.net.Uri
 //import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) { //주석
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 

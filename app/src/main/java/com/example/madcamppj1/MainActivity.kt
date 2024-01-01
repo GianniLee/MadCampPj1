@@ -19,7 +19,7 @@ import android.net.Uri
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) { //주석
-        super.onCreate(savedInstanceState)
+        super.onCreate(savedInstanceState) //주석
         setContentView(R.layout.activity_main)
 
         moveTab()

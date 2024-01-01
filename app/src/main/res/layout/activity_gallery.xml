@@ -25,70 +25,59 @@
         app:menu="@menu/bottom_menu" />
 
 
-    <ImageView
-        android:id="@+id/avatars"
-        android:layout_width="181dp"
-        android:layout_height="164dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="189dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="41dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <Button
-        android:id="@+id/picture"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_alignTop="@+id/camera"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="2dp"
-        android:layout_toEndOf="@+id/camera"
-        android:text="Gallery"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/camera"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="27dp"
-        android:text="camera"
+        android:layout_marginTop="70dp"
+        android:text="카메라"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_below="@+id/Gallery1"
+        android:layout_height="450dp"
+        android:layout_above="@+id/bottomNavigation"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="37dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="150dp"
         android:layout_marginEnd="5dp"
+        android:layout_marginBottom="20dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+    </FrameLayout>
 
     <Button
         android:id="@+id/Gallery1"
-        android:layout_width="wrap_content"
-        android:layout_height="55dp"
-        android:layout_below="@+id/camera"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="38dp"
-        android:text="Gallery1"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="70dp"
+        android:layout_toEndOf="@+id/camera"
+        android:text="기본갤러리"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Gallery2"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="70dp"
+        android:layout_toEndOf="@+id/Gallery1"
+        android:text="New갤러리"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </RelativeLayout>

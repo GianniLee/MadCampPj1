@@ -29,6 +29,8 @@ class Fragment_Gallery1 : Fragment() {
     inner class MyGridAdapter(private val context: Context) : BaseAdapter() {
 
         private var picID = arrayListOf<Int>(
+            R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5,
+            R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5,
             R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5
         )
 

@@ -29,47 +29,24 @@ import java.io.InputStream
 import java.text.SimpleDateFormat
 
 class GalleryActivity : AppCompatActivity() {
-
-    private val CAMERA = arrayOf(Manifest.permission.CAMERA)
-    private val STORAGE = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE)
-    val CAMERA_CODE = 98
-    val STORAGE_CODE = 99
-
-    private lateinit var editTextNewName: EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gallery)
         tmp1()
 
         val camera = findViewById<Button>(R.id.camera)
-        val gallery = findViewById<Button>(R.id.picture)
-        val imageView = findViewById<ImageView>(R.id.avatars)
-        var currentUri: Uri? = null
 
         // 1.카메라 촬영후 저장
         val cameraPicture = registerForActivityResult(ActivityResultContracts.TakePicturePreview()) {
                 bitmap: Bitmap? -> val name = randomFileName()
             val uri = saveFile(bitmap, setFileData(name,"image/jpeg"))
-            imageView.setImageURI(uri)
-            currentUri = uri
         }
 
         camera.setOnClickListener {
             cameraPicture.launch(null)
         }// 1.
 
-        // 2.갤러리에서 이미지 데이터 가져와 출력하기
-        val getImageFromGallery = registerForActivityResult(ActivityResultContracts.GetContent()) {
-                uri: Uri? -> imageView.setImageURI(uri)
-            currentUri = uri
-        }
-
-        gallery.setOnClickListener {
-            getImageFromGallery.launch("image/*")
-        }// 2.
-
-
-        //4. 갤러리 프래그먼트 출력
+        //2. 갤러리 프래그먼트 출력
         val btnGallery1 = findViewById<Button>(R.id.Gallery1)
         btnGallery1.setOnClickListener {
             val frag1 = supportFragmentManager.beginTransaction()
@@ -77,67 +54,12 @@ class GalleryActivity : AppCompatActivity() {
             frag1.commit()
         }
 
-        //5.
-        val imageViews = findViewById<ImageView>(R.id.avatars)
-        val getContent = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
-            if (uri != null) {
-                // 이미지를 앱 내부 저장소로 복사
-                val internalStoragePath = copyImageToInternalStorage(this, uri, "copied_image.jpg")
-
-                // 내부 저장소에 복사된 이미지를 ImageView에 표시
-                if (internalStoragePath != null) {
-                    imageViews.setImageURI(Uri.fromFile(internalStoragePath))
-                }
-            }
+        //3. 여러개의 사진을 선택해 갤러리 생성
+        val btnGallery2 = findViewById<Button>(R.id.Gallery2)
+        btnGallery2.setOnClickListener {
+            val intent = Intent(this, Activity_Gallery2::class.java)
+            startActivity(intent)
         }
-    }
-
-    fun copyImageToInternalStorage(context: Context, sourceUri: Uri, destinationFileName: String): File? {
-        try {
-            val inputStream: InputStream? = context.contentResolver.openInputStream(sourceUri)
-            val internalStoragePath = File(context.filesDir, destinationFileName)
-
-            inputStream?.let {
-                FileOutputStream(internalStoragePath).use { outputStream ->
-                    val buffer = ByteArray(4 * 1024)
-                    var read: Int
-                    while (it.read(buffer).also { read = it } != -1) {
-                        outputStream.write(buffer, 0, read)
-                    }
-                    outputStream.flush()
-                }
-
-                // 이미지가 복사된 내부 저장소의 파일 경로를 반환
-                return internalStoragePath
-            }
-
-        } catch (e: Exception) {
-            e.printStackTrace()
-            Toast.makeText(context, "Failed to copy image to internal storage.", Toast.LENGTH_SHORT).show()
-        }
-
-        return null
-    }
-
-    private fun renameImage(activity_gallery: GalleryActivity, currentUri: Uri, newName: String, s: String): Uri? {
-        val contentResolver = activity_gallery.contentResolver
-        val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, currentUri)
-
-        val imagesDir = activity_gallery.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-        val imageFile = File(imagesDir, "$newName.$s")
-        val fos = FileOutputStream(imageFile)
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos)
-        fos.close()
-
-        //
-
-        val newUri = FileProvider.getUriForFile(
-            activity_gallery,
-            activity_gallery.applicationContext.packageName + ".provider",
-            imageFile
-        )
-        contentResolver.delete(currentUri, null, null)
-        return newUri
     }
 
     // 파일명을 날짜 저장

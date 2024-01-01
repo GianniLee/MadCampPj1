@@ -1,3 +1,5 @@
 package com.example.madcamppj1
 
-data class Profile(val profileImageResId: String, val name: String, val phoneNumber: String)
+import android.net.Uri
+
+data class Profile(val profileImageUri: Uri?, val name: String, val phoneNumber: String)
